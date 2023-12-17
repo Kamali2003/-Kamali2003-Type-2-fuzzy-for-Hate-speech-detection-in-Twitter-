@@ -108,6 +108,8 @@ def classify_tweet(tweet):
 
 data['predicted_label'] = data['clean_text'].apply(classify_tweet)
 
+classifier= DecisionTreeClassifier(criterion="entropy", random_state=0)
+
 X_train, X_test, y_train, y_test = train_test_split(data['clean_text'], data['predicted_label'], test_size=0.2, random_state=42)
 
 classifier = DecisionTreeClassifier()
