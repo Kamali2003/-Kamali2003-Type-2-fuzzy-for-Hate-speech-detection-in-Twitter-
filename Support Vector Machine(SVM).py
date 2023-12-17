@@ -108,12 +108,14 @@ def classify_tweet(tweet):
 
 data['predicted_label'] = data['clean_text'].apply(classify_tweet)
 
+from sklearn.svm import SVC
+
 X_train, X_test, y_train, y_test = train_test_split(data['clean_text'], data['predicted_label'], test_size=0.2, random_state=42)
 
-classifier = DecisionTreeClassifier()
-classifier.fit(X_train_vectorized, y_train)
+svm = SVC(kernel='linear', random_state=42)
+svm.fit(X_train_vectorized, y_train)
 
-y_pred = classifier.predict(X_test_vectorized)
+y_pred = svm.predict(X_test_vectorized)
 
 from sklearn.metrics import accuracy_score, classification_report
 
