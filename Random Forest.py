@@ -124,3 +124,7 @@ classification_rep = classification_report(y_test, y_pred)
 
 print(f'Accuracy: {accuracy}')
 print('Classification Report:\n', classification_rep)
+
+user_tweet = "The concert starts at 8 PM and tickets cost $50."
+output_label = predict_user_input(user_tweet)
+print(output_label)
